@@ -17,19 +17,18 @@ class AuthTest extends DuskTestCase
             //We'll test the register feature here
             $browser->visit('/')
                 ->clickLink('Register')
-                ->value('#name', 'Samson')
-                ->value('#email', 'samson@test.com')
+                ->value('#name', 'John')
+                ->value('#email', 'johngrisham@bunnyshell.com')
                 ->value('#password', '00000000')
                 ->value('#password_confirmation', '00000000')
                 ->click('button[type="submit"]')
 
                 //We'll test the login feature here
-                ->press('Samson');
+                ->press('John');
             if ($browser->seeLink('Log Out')) {
                 $browser->clickLink('Log Out')
-
-                    ->clickLink('Login')
-                    ->value('#email', 'samson@test.com')
+                    ->clickLink('Log in')
+                    ->value('#email', 'johngrisham@bunnyshell.com')
                     ->value('#password', '00000000')
                     ->click('button[type="submit"]');
             }
